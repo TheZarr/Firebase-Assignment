@@ -61,64 +61,12 @@ trainData.on("child_added", function(childSnapshot, prevChildKey){
 
 	// To calculate the arrival time, add the tMinutes to the currrent time
 	let tArrival = moment().add(tMinutes, "m").format("hh:mm A"); 
-	// console.log(tMinutes + " minutes to arrival");
-	// console.log(tArrival + " Arrival time");
-	// console.log(moment().format("hh:mm A") + " current time Am/Pm format");
-	// console.log(moment().format("X") + " current time in Unix format");
-
-	// [Work on later] Sort function
-	// let nextTrain = data.firstTrain.orderByValue();
-	// console.log(nextTrain);
-	// Add each train's data into the table 
+	
 	$("#trainTable > tbody").append("<tr><td>" + tName + "</td><td>" + tDestination + "</td><td id='min'>" + tFrequency + "</td><td id='min'>" + tArrival + "</td><td id='min'>" + tMinutes + "</td></tr>");
 
 });
 
 $("#currentTime").append(moment().format("hh:mm A"));
 
-//Sort function
 
-// var sortable = [];
-// for (var firstTrain in maxSpeed) {
-//     sortable.push([vehicle, maxSpeed[vehicle]]);
-// }
-
-// sortable.sort(function(a, b) {
-//     return a[1] - b[1];
-// });
-// var points = [40, 100, 1, 5, 25, 10];
-// points.sort(function(a, b){return a - b});
-
-
-// Assume the following situations. 
-
-// (TEST 1) 
-// First Train of the Day is 3:00 AM 
-// Assume Train comes every 3 minutes.
-// Assume the current time is 3:16 AM....
-// What time would the next train be...? (Use your brain first)
-// It would be 3:18 -- 2 minutes away
-
-// (TEST 2) 
-// First Train of the Day is 3:00 AM 
-// Assume Train comes every 7 minutes.
-// Assume the current time is 3:16 AM....
-// What time would the next train be...? (Use your brain first)
-// It would be 3:21 -- 5 minutes away
-
-// ==========================================================
-
-// Solved Mathematically
-// Test case 1: 
-// 16 - 00 = 16
-// 16 % 3 = 1 (Modulus is the remainder)
-// 3 - 1 = 2 minutes away
-// 2 + 3:16 = 3:18
-
-// Solved Mathematically  
-// Test case 2: 
-// 16 - 00 = 16
-// 16 % 7 = 2 (Modulus is the remainder)
-// 7 - 2 = 5 minutes away
-// 5 + 3:16 = 3:21
 
